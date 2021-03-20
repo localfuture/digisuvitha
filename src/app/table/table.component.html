@@ -1,0 +1,70 @@
+<div class="container-fluid pt-2" style="color: white; background-color: darkblue;">
+  <div class="row">
+    <div class="col-md">
+      <h1>
+        <span class="material-icons">
+          home
+          </span>
+        Mock App</h1>
+    </div>
+    <div class="col-md">
+
+    </div>
+    <div class="col-md">
+      <button mat-raised-button color="warn" class="float-right">Add New</button>
+    </div>
+  </div>
+</div>
+<div class="container p-5">
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+
+      <!-- Username Column -->
+      <ng-container matColumnDef="userName">
+        <th mat-header-cell *matHeaderCellDef>Username</th>
+        <td mat-cell *matCellDef="let element"> {{element.userName}} </td>
+      </ng-container>
+
+      <!-- Email Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>Email</th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+
+      <!-- Phone Column -->
+      <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef> Phone</th>
+        <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+      </ng-container>
+
+      <!-- Gender Column -->
+      <ng-container matColumnDef="gender">
+        <th mat-header-cell *matHeaderCellDef> Gender </th>
+        <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+      </ng-container>
+
+      <!-- Age Column -->
+      <ng-container matColumnDef="age">
+        <th mat-header-cell *matHeaderCellDef> Age </th>
+        <td mat-cell *matCellDef="let element"> {{element.age}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef> Delete</th>
+        <td mat-cell *matCellDef="let element">Delete</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row
+      *matRowDef="let row; columns: displayedColumns;"
+      (click)="onRowClicked(row)"></tr>
+    </table>
+
+    <mat-paginator
+      [length]="100"
+      [pageSize]="5"
+      [pageSizeOptions]="[5, 10, 25, 100]"
+      showFirstLastButtons>
+    </mat-paginator>
+  </div>
+</div>
