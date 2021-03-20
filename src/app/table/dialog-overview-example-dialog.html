@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>More about {{data.userName}}</h1>
+<div mat-dialog-content>
+    <div class="text-center">
+        <img src="https://source.unsplash.com/140x140/?face" width="140" height="140" border-radius="0" class="rounded-circle">
+        <h1 class="text-danger">{{data.userName}} <span class="text-muted pl-1">{{data.age}}</span>{{data.gender}}</h1>
+        <p>{{data.email}}</p>
+        <p>{{data.phone}}</p>
+    </div>
+
+</div>
+<div mat-dialog-actions class="d-grid gap-2">
+  <button class="btn btn-primary float-right" (click)="onNoClick()">I've heard enough</button>
+</div>
