@@ -9,6 +9,7 @@ export class DigiService {
   constructor(private http: HttpClient) { }
 
   createMockUser(data: any) {
+    console.log(data);
     return this.http.post('https://dev.digisuvidhacentre.com/Profile/api/MockUser', data);
   }
 

@@ -14,15 +14,20 @@ import {DigiService} from '../digi.service';
 export class TableComponent implements OnInit {
   displayedColumns: string[] = ['userName', 'email', 'phone', 'gender', 'age', 'delete'];
   dataSource = new MatTableDataSource<PeriodicElement>([]);
+  length: any;
 
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator = new MatPaginator(new MatPaginatorIntl(), ChangeDetectorRef.prototype);
+  // @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator = new MatPaginator(new MatPaginatorIntl(), ChangeDetectorRef.prototype);
 
-  constructor(private digiService: DigiService, public dialog: MatDialog) {}
+  @ViewChild(MatPaginator, {static: true}) paginator: any;
+
+  constructor(private digiService: DigiService, public dialog: MatDialog) {
+    this.dataSource.paginator = this.paginator;
+  }
 
   ngOnInit() {
-    this.dataSource.paginator = this.paginator;
     this.digiService.displayAllMockUser().subscribe((Response: any) => {
       this.dataSource = Response;
+      this.length = Response.length;
     });
   }
 
